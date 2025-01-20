@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparador de Listas</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=cached" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Comparar dos Listas</h1>
+
+    <div class="input-section">
+      <label for="list1">Lista 1:</label>
+      <textarea id="list1" rows="5" placeholder="Ingresa los elementos de la lista 1 (uno por línea)"></textarea>
+    </div>
+
+    <div class="input-section">
+      <label for="list2">Lista 2:</label>
+      <textarea id="list2" rows="5" placeholder="Ingresa los elementos de la lista 2 (uno por línea)"></textarea>
+    </div>
+
+    <div class="buttons-container">
+      <button class="compare-button" onclick="compararListas()">Comparar Listas</button>
+      <span id="refreshBtn" class="material-symbols-outlined">
+        cached
+      </span>
+      <span class="copy-button" onclick="copiarResultados()">
+        Copiar comunes
+      </span>
+    </div>
+
+    <div class="result-section">
+      <h3>Elementos Comunes:</h3>
+      <ul id="result"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
