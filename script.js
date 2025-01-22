@@ -24,7 +24,18 @@ function compararListas() {
   function copiarResultados() {
     const comunes = [...document.querySelectorAll('#result li')].map(item => item.textContent).join('\n');
     navigator.clipboard.writeText(comunes).then(() => {
-      alert('Resultados copiados al portapapeles');
+      const successAlert = document.getElementById("successAlert");
+  
+      // Mostrar la alerta
+      successAlert.classList.remove("d-none");
+      successAlert.textContent = "Resultados copiados al portapapeles.";
+  
+      // Ocultar la alerta después de 3 segundos
+      setTimeout(() => {
+        successAlert.classList.add("d-none");
+      }, 3000);
+    }).catch(() => {
+      alert('Error al copiar los resultados');
     });
   }
 
@@ -36,5 +47,17 @@ function compararListas() {
   document.getElementById('refreshBtn').addEventListener('click', function () {
     document.getElementById('list1').value = '';
     document.getElementById('list2').value = '';
+    const dangerAlert = document.getElementById("dangerAlert");
+  
+    // Mostrar la alerta
+    dangerAlert.classList.remove("d-none");
+    dangerAlert.textContent = "Se resetearon las listas a comparar.";
+
+    // Ocultar la alerta después de 3 segundos
+    setTimeout(() => {
+      dangerAlert.classList.add("d-none");
+    }, 3000);
+  }).catch(() => {
+    alert('Error al resetear listas.');
   });
   
