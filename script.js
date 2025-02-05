@@ -1,24 +1,39 @@
 function compararListas() {
-    // Obtener las listas de los textarea
-    const list1 = document.getElementById("list1").value.split("\n").map(item => item.trim().toLowerCase());
-    const list2 = document.getElementById("list2").value.split("\n").map(item => item.trim().toLowerCase());
-  
-    // Filtrar las coincidencias entre ambas listas
-    const comunes = list1.filter(item => list2.includes(item));
-  
-    // Mostrar el resultado
-    const resultList = document.getElementById("result");
-    resultList.innerHTML = ''; // Limpiar resultados previos
-  
-    if (comunes.length > 0) {
-      comunes.forEach(item => {
-        const listItem = document.createElement("li");
-        listItem.textContent = item;
-        resultList.appendChild(listItem);
-      });
-    } else {
-      resultList.innerHTML = "<li>No hay elementos comunes</li>";
-    }
+  const spinner = document.getElementById("spinner");
+  const buttonText = document.getElementById("buttonText");
+  const compareButton = document.getElementById("compareButton");
+
+  // Mostrar el spinner y ocultar el texto
+  spinner.classList.remove("d-none");
+  buttonText.classList.add("d-none");
+
+  // Simular tiempo de procesamiento (reemplázalo con tu lógica real)
+  setTimeout(() => {
+      // Obtener las listas de los textarea
+      const list1 = document.getElementById("list1").value.split("\n").map(item => item.trim().toLowerCase());
+      const list2 = document.getElementById("list2").value.split("\n").map(item => item.trim().toLowerCase());
+
+      // Filtrar las coincidencias entre ambas listas
+      const comunes = list1.filter(item => list2.includes(item));
+
+      // Mostrar el resultado
+      const resultList = document.getElementById("result");
+      resultList.innerHTML = ''; // Limpiar resultados previos
+
+      if (comunes.length > 0) {
+          comunes.forEach(item => {
+              const listItem = document.createElement("li");
+              listItem.textContent = item;
+              resultList.appendChild(listItem);
+          });
+      } else {
+          resultList.innerHTML = "<li>No hay elementos comunes</li>";
+      }
+
+      // Ocultar el spinner y mostrar el texto
+      spinner.classList.add("d-none");
+      buttonText.classList.remove("d-none");
+  }, 500);
   }
 
   function copiarResultados() {
